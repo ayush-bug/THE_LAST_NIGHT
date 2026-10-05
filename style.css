@@ -19,6 +19,15 @@ body{
     font-family: frightmare;
     src: url(assets/fonts/Frightmare-Demo.otf);
 }
+@font-face {
+    font-family: nightcore;
+    src: url(assets/fonts/Nightcore.ttf);
+}
+@font-face {
+    font-family: drcaligari;
+    src: url(assets/fonts/DrCaligari.ttf);
+}
+
 .splash{
     width: 100%;
     height: 97vh;
@@ -63,4 +72,36 @@ body{
 }
 .contant button:hover{
   transform: scale(1.1);
+}
+
+.time{
+    color: rgb(177, 0, 0);
+    font-size: xx-large;
+    opacity: 0;
+    font-family: nightcore;
+    transition: opacity 2s ease;
+    text-shadow: 2px 3px 3px black;
+}
+.time span{
+    font-family: drcaligari;
+}
+.story{
+    position: fixed;
+    bottom: 40px;
+    left: 30%;
+    transform: translate(-50px);
+    width: 50%;
+    height: auto;
+    text-align: center;
+    color: white;
+    font-size: larger;
+    z-index: 999;
+    border: 3px solid crimson;
+    border-radius: 10px;
+    box-shadow: 3px 3px 4px black;
+
+}
+.story h2{
+    padding: 20px;
+    font-family: drcaligari;
 }
