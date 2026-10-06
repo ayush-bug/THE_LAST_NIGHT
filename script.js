@@ -31,7 +31,7 @@ document.getElementById("enter").addEventListener('click' , function(){
 document.getElementById("next").addEventListener('click', function(){
     document.getElementById("text1").style.display = "none";
     document.getElementById("text2").style.display = "block";
-     const nextText = "you can only escape if you can answer all the questions !!!";
+     const nextText = "you can only escape if you can finish all the levels !!!";
     Type(nextText, document.getElementById("text2"));
     document.getElementById("next").style.display = "none";
     document.getElementById("ready").style.display = "block";
@@ -45,4 +45,10 @@ document.getElementById("ready").addEventListener('click' , function(){
     Type(txt2, document.getElementById("text3"));
     document.getElementById("ready").style.display = "none";
     document.getElementById("yeah").style.display = "block";
+});
+
+document.getElementById("yeah").addEventListener('click' , function(){
+    document.querySelector('.story').style.display = "none";
+    document.querySelector('.time').style.display = "none";
+    document.querySelector(".mission").style.display = "grid";
 });
