@@ -119,6 +119,7 @@ body{
     padding: 20px;
     font-family: drcaligari;
     text-shadow: 2px 3px 2px black;
+    letter-spacing: 2px;
 }
 #next{
     width: 100px;
@@ -194,19 +195,50 @@ body{
     }
     
 }
-.doors{
+.doors-container{
     width: 100%;
     display: grid;
     padding-right: 100px;
     gap: 50px;
     grid-template-columns: repeat(5,1fr);
 }
-.doors img{
+ .doors-container img{
     width: 100px;
     filter: drop-shadow(6px 6px 3px rgb(56, 1, 1));
     transition: 0.5s;
     cursor:pointer;
-}
-.doors img:hover{
+} 
+.doors-container img:hover{
     transform: scale(1.2);
+}
+
+
+.door{
+    position: relative;
+    cursor: pointer;
+}
+
+.mission-label{
+    width: fit-content;
+    position: absolute;
+    inset:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #b30000;
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-shadow: 4px 2px 0px #090808;
+}
+.door:hover .mission-label{
+    opacity: 1;
+}
+.door:hover img{
+    transform: scale(1.03);
+    filter: brightness(0.5);
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,10 @@
     <link rel="shortcut icon" href="assets/skull-red-icon.png" type="image/x-icon">
     <title>The Last Night</title>
 </head>
+
 <body>
     <div class="splash">
-        <div class="contant"> 
+        <div class="contant">
             <img src="assets/skull-red-icon.png" class="skull" alt="skull">
             <div>
                 <button id="enter">ENTER IN THE LAST NIGHT</button>
@@ -20,29 +22,68 @@
         </div>
     </div>
     <div class="story">
-       <h2 id="text1"></h2>
-       <h2 id="text2" style="display: none;"></h2>
-       <h2 id="text3" style="display: none;"></h2>
-       <button id="next">OK </button>
-       <button id="ready" style="display: none;">Hmm OK</button>
-       <button id="yeah" style="display: none">YEAH</button>
-</div>
-<div class="mission" style="display: none;">
-    <h1> ALL MISSIONS </h1>
-    <br>
-  <div class="doors">
-     <img src="assets/doors/door1.png" alt="Mission 1 , complete to unlock mission 2">
-     <img src="assets/doors/door2.png" alt="">
-        <img src="assets/doors/door3.png" alt="">
-           <img src="assets/doors/door4.png" alt="">
-              <img src="assets/doors/door5.png" alt="">
-                 <img src="assets/doors/door6.png" alt="">
-                    <img src="assets/doors/door7.png" alt="">
-                       <img src="assets/doors/door8.png" alt="">
-                          <img src="assets/doors/escape.png" style="width: 120px;" alt="">
+        <h2 id="text1"></h2>
+        <h2 id="text2" style="display: none;"></h2>
+        <h2 id="text3" style="display: none;"></h2>
+        <button id="next">OK </button>
+        <button id="ready" style="display: none;">Hmm OK</button>
+        <button id="yeah" style="display: none">YEAH</button>
     </div>
-</div>
+    <div class="mission" style="display: none;">
+        <h1> ALL MISSIONS </h1>
+        <br>
+        <div class="doors-container">
+            <div class="door">
+                <img src="assets/doors/door1.png" alt="Mission 1 , complete to unlock mission 2">
+                <div class="mission-label">MIssion 1</div>
+            </div>
+            <div class="door">
+                <img src="assets/doors/door2.png" alt="">
+                <div class="mission-label">Mission 2</div>
+            </div>
+            <div class="door">
+               
+                <img src="assets/doors/door3.png" alt="">
+                 <div class="mission-label">
+                    Mission 3
+                </div>
+            </div>
+            <div class="door">
+                
+                <img src="assets/doors/door4.png" alt="">
+                <div class="mission-label">Mission 4</div>
+            </div>
+            <div class="door">
+           
+                <img src="assets/doors/door5.png" alt="">
+                     <div class="mission-label">Mission 5</div>
+            </div>
+            <div class="door">
+                
+                <img src="assets/doors/door6.png" alt="">
+                <div class="mission-label">Mission 6</div>
+            </div>
+            <div class="door">
+             
+                <img src="assets/doors/door7.png" alt="">
+                   <div class="mission-label">Mission 7</div>
+            </div>
+            <div class="door">
+                
+                <img src="assets/doors/door8.png" alt="">
+                <div class="mission-label">Mission 8</div>
+            </div>
+            <div class="door">
+             
+                <img src="assets/doors/escape.png"
+                    style="width: 120px;  filter: drop-shadow( 0px 1px 44px 0px rgba(215, 148, 4, 0.75));" alt="">
+                     <div class="mission-label">Escape</div>
+                </div>
+
+        </div>
+    </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
