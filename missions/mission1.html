@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/ayush-bug/THE_LAST_NIGHT/refs/heads/main/assets/skull-red-icon.png" type="image/x-icon">
+    <title>Mission 1 : THE CODE</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: rgb(25, 3, 14);
+        }
+        .rules-container{
+            width: 100%;
+            height: 97vh;
+            display: flex;
+            flex-direction: column;
+            gap: -10px;
+            align-items: center;
+            justify-content: center;
+        }
+        .rules{
+    width: 300px;
+   height: 100%;
+    background-image: url("./assets/rules-bg.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+   filter: drop-shadow(0 10px 25px rgba(218, 15, 15, 0.8));
+   animation: load 2s ease forwards;
+        }
+    
+@keyframes load {
+    from {
+        opacity: 0;
+        clip-path: inset(0 0 100% 0);
+    }
+
+    to {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+}
+@font-face {
+    font-family: breathHouse;
+    src: url(../assets/fonts/breath-house.ttf);
+}
+.rules h1{
+    position: absolute;
+    top: 30%;
+    left: 0;
+    text-align: center;
+    font-family: breathHouse;
+    color: rgb(7, 39, 2);
+    text-shadow: 0 0 10px rgba(218, 15, 15, 0.8);
+}
+.okey{
+    border: 3px solid white;
+    background: transparent;
+    padding: 20px;
+    width: 10%;
+    color: wheat;
+    border-radius: 10px;
+    font-size: large;
+    opacity: 0;
+    animation: buttonshow 1s ease 2s forwards;
+    cursor: pointer;
+}
+.okey:hover{
+    transform: scale(1.08);
+}
+@keyframes buttonshow {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="rules-container">
+        <div class="rules">
+           <h1></h1>
+        </div>
+        <button class="okey">OKEY</button>
+    </div>
+
+    <script>
+const rule1 = "MISSION 1 :  The rule is simple for mission 1 you have to search for codes inside the image , the code will help you to unlock mission 2 , happy escaping .";
+let i = 0;
+function Type(text,ele) {
+    let i = 0;
+    function write() {
+        if (i < text.length) {
+           ele.textContent += text.charAt(i);
+            i++;
+            setTimeout(write, 70);
+        }
+    }
+    write();
+}
+ Type(rule1,document.querySelector('.rules h1'));
+const click = new Audio('../assets/audio/clickSound.mp3')
+document.querySelector('body').addEventListener('click' , function(){
+    click.play();
+});
+ document.querySelector('.okey').addEventListener('click' , function(){
+    document.querySelector('.rules-container').style.display= "none";
+ });
+    </script>
+</body>
+</html>
