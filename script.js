@@ -15,7 +15,13 @@ function Type(text,ele) {
     write();
 }
 
-
+document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+        bgm.pause();
+    } else {
+        bgm.play();
+    }
+});
 
 document.getElementById("enter").addEventListener('click' , function(){
     bgm.play();

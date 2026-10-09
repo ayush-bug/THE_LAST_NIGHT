@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/ayush-bug/THE_LAST_NIGHT/refs/heads/main/assets/skull-red-icon.png" type="image/x-icon">
-    <title>Mission 1 : Spot The Diffrence
+    <title>Mission 2 : Spot The Diffrence to get code .
     </title>
     <style>
         *{
@@ -131,7 +131,7 @@
 .story h2{
     padding: 20px;
     font-family: breathHouse;
-    font-size: large;
+    font-size: x-large;
     text-shadow: 2px 3px 2px black;
     letter-spacing: 2px;
 }
@@ -192,6 +192,24 @@
     cursor: pointer;
    
 }
+.show-spot{
+    width: 100%;
+    
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color:  rgba(80, 80, 80, 0.75);
+}
+ .show-spot img{
+    max-width: 90vw;
+    max-height: 85vw;
+    object-fit: contain;
+    border: 1px solid #555555;
+    box-shadow:  0 0 25px rgba(0, 0, 0, 0.6);
+} 
     </style>
 </head>
 <body>
@@ -204,12 +222,18 @@
          <button id="unlock" >Unlock</button>
          <p id="message"></p>
     </div>
+   
     <div class="story">
         <h2 id="text1"></h2>
         <h2 id="text2"></h2>
         <button id="next">OK </button>
         <button id="ok" style="display: none;">OK</button>
         </div>
+         <div class="show-spot">
+        
+            <img src="assets/spot.png" alt="spot the diffrence">
+        
+    </div>
     <div class="rules-container">
         <div class="rules">
            <h1></h1>
@@ -217,7 +241,7 @@
         <button class="okey">OKEY</button>
     </div>
      <div class="code-image">
-        <img src="assets/3am.png" alt="find code">
+        <img src="assets/mission2bg.jpg" alt="find code">
      </div>
     <script>
 const rule1 = "MISSION 2 :  In this mission you have to spot the diffrence between two images .";
@@ -238,15 +262,24 @@ const click = new Audio('../assets/audio/clickSound.mp3')
 document.querySelector('body').addEventListener('click' , function(){
     click.play();
 });
-const bgm = new Audio('../assets/audio/mission1-bgm.mp3');
-const instruction = "You have to find a 3 letter word or number it can mix of numbes and word , best of luck to unlock mission 2";
-const instruction2 = "After you find the word , move to mission 2 , the code will be asked to unlock the mission 2."; 
+const bgm = new Audio('../assets/audio/mission2bgm.mp3');
+
+document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+        bgm.pause();
+    } else {
+        bgm.play();
+    }
+});
+
+const instruction = "so you need to find the total number of diffrence in the images .";
+const instruction2 = "after that conver that number into binary and that will be your code for next mission ."; 
 document.querySelector('.okey').addEventListener('click' , function(){
     document.querySelector('.rules-container').style.display= "none";
     document.querySelector('.code-image').style.display = "block";
     bgm.play();
   Type(instruction,document.querySelector('#text1'));
-
+     document.querySelector('.show-spot').style.display = "flex";
     document.querySelector('.story').style.display = "block";
 });
 document.getElementById("next").addEventListener('click', function(){

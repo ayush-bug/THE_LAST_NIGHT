@@ -183,6 +183,17 @@ document.querySelector('body').addEventListener('click' , function(){
     click.play();
 });
 const bgm = new Audio('../assets/audio/mission1-bgm.mp3');
+
+
+document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+        bgm.pause();
+    } else {
+        bgm.play();
+    }
+});
+
+
 const instruction = "You have to find a 3 letter word or number it can mix of numbes and word , best of luck to unlock mission 2";
 const instruction2 = "After you find the word , move to mission 2 , the code will be asked to unlock the mission 2."; 
 document.querySelector('.okey').addEventListener('click' , function(){
