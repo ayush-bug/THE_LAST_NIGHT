@@ -1,144 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="https://raw.githubusercontent.com/ayush-bug/THE_LAST_NIGHT/refs/heads/main/assets/skull-red-icon.png" type="image/x-icon">
+    <link rel="shortcut icon"
+        href="https://raw.githubusercontent.com/ayush-bug/THE_LAST_NIGHT/refs/heads/main/assets/skull-red-icon.png"
+        type="image/x-icon">
 
     <title>Mission 3 : stare yourself </title>
-<style>
-      *{
+    <style>
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        body{
+
+        body {
             background: rgb(25, 3, 14);
             background: url(assets/mission3bg.jpg);
-        background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
+
         @font-face {
             font-family: bloodcrow;
             src: url(/assets/fonts/bloodcrowci.ttf);
         }
-.code-overlay{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-    background: rgba(0, 0, 0, 0.92);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.code-box{
-    width: 320px;
-    padding: 30px;
-    background-color: #100909;
-    border: 1px solid #8b0000;
-    box-shadow: 0 0 25px rgba(180, 0, 0, 0.3) ;
-    text-align: center;
-    color: white;
-    font-family: monospace;
-}
-.code-box h2{
-    color: #c00000;
-    margin-bottom: 15px;
-}
-#missionCode{
-    width: 30%;
-    padding: 12px;
-    margin: 20px 0 12px;
-    box-sizing: border-box;
-    background-color: #080808;
-    color: white;
-    border: 1px solid #555;
-    outline: none;
 
-}
-#unlock{
-    padding: 12px 22px;
-    background: #850000;
-    color: white;
-    border: none;
-    cursor: pointer;
-   
-}
+        .code-overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(0, 0, 0, 0.92);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .code-box {
+            width: 320px;
+            padding: 30px;
+            background-color: #100909;
+            border: 1px solid #8b0000;
+            box-shadow: 0 0 25px rgba(180, 0, 0, 0.3);
+            text-align: center;
+            color: white;
+            font-family: monospace;
+        }
+
+        .code-box h2 {
+            color: #c00000;
+            margin-bottom: 15px;
+        }
+
+        #missionCode {
+            width: 30%;
+            padding: 12px;
+            margin: 20px 0 12px;
+            box-sizing: border-box;
+            background-color: #080808;
+            color: white;
+            border: 1px solid #555;
+            outline: none;
+
+        }
+
+        #unlock {
+            padding: 12px 22px;
+            background: #850000;
+            color: white;
+            border: none;
+            cursor: pointer;
+
+        }
 
 
 
-.story{
-    display: none;
-    position: fixed;
+        .story {
+            display: none;
+            position: fixed;
 
-    bottom: 50%;
-    left: 30%;
-    transform: translate(-50px);
-    width: 50%;
-    height: auto;
-    text-align: center;
-    color: white;
-    font-size: larger;
-    z-index: 9999;
-    border: 3px solid crimson;
-    background-color: rgb(44, 1, 1);
-    border-radius: 10px;
-    box-shadow: 3px 3px 4px black;
-       animation: fadein 2s ease forwards;
-}
+            bottom: 50%;
+            left: 30%;
+            transform: translate(-50px);
+            width: 50%;
+            height: auto;
+            text-align: center;
+            color: white;
+            font-size: larger;
+            z-index: 9999;
+            border: 3px solid crimson;
+            background-color: rgb(44, 1, 1);
+            border-radius: 10px;
+            box-shadow: 3px 3px 4px black;
+            animation: fadein 2s ease forwards;
+        }
 
- @keyframes fadein{
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
- }
-.story h2{
-    padding: 20px;
-    font-family: bloodcrow;
-    font-size:xx-large;
-    text-shadow: 2px 3px 2px black;
-    letter-spacing: 7px;
-}
-#next, #ok{
-    width: 100px;
-    height: 30px;
-    border: none;
-    background-color: rgb(235, 33, 50);
-    margin-bottom: 10px;
-    border:2px solid  black;
-    border-radius: 10px;
-    font-weight: bolder;
-    cursor: pointer;
-}
-</style>
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .story h2 {
+            padding: 20px;
+            font-family: bloodcrow;
+            font-size: xx-large;
+            text-shadow: 2px 3px 2px black;
+            letter-spacing: 7px;
+        }
+
+        #next,
+        #ok {
+            width: 100px;
+            height: 30px;
+            border: none;
+            background-color: rgb(235, 33, 50);
+            margin-bottom: 10px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-     <div class="code-overlay" id="overlay">
+    <div class="code-overlay" id="overlay">
         <div class="code-box">
             <h2>Mission locked</h2>
             <p>Enter the clue code you got in mission 2</p>
         </div>
         <input type="text" required id="missionCode" placeholder="Enter code">
-         <button id="unlock" >Unlock</button>
-         <p id="message"></p>
+        <button id="unlock">Unlock</button>
+        <p id="message"></p>
     </div>
 
-<div class="story">
+    <div class="story">
         <h2 id="text1"></h2>
         <h2 id="text2"></h2>
         <h2 id="timeError"></h2>
         <button id="next">OK </button>
         <button id="ok" style="display: none;">YEAH</button>
-        </div>
+    </div>
 
 
 
@@ -146,80 +161,81 @@
         // check for mission unlocked
 
 
-const rule1 = "MISSION 2 :  This , mission is very diffrent form other last 2 mission .";
-let i = 0;
-function Type(text,ele) {
-    let i = 0;
-    function write() {
-        if (i < text.length) {
-           ele.textContent += text.charAt(i);
-            i++;
-            setTimeout(write, 70);
+        const rule1 = "MISSION 2 :  This , mission is very diffrent form other last 2 mission .";
+        let i = 0;
+        function Type(text, ele) {
+            let i = 0;
+            function write() {
+                if (i < text.length) {
+                    ele.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(write, 70);
+                }
+            }
+            write();
         }
-    }
-    write();
-}
 
-if (localStorage.getItem("mission3Unlocked") === "true") {
-    document.querySelector(".code-overlay").style.display = "none";
-     document.querySelector(".story").style.display = "block";
-     Type(rule1, document.getElementById('text1'))
-}
+        if (localStorage.getItem("mission3Unlocked") === "true") {
+            document.querySelector(".code-overlay").style.display = "none";
+            document.querySelector(".story").style.display = "block";
+            Type(rule1, document.getElementById('text1'))
+        }
 
 
-// unlock mission code
-document.getElementById('unlock').addEventListener('click',function(){
-    const code = document.getElementById('missionCode').value.trim();
-    const message = document.getElementById('message');
-    if(code.toLowerCase() == "1010" || code.toLowerCase() == "1 0 1 0"){
-        localStorage.setItem("mission3Unlocked", "true");
-        message.textContent = "Mission unlocked";
-        message.style.color = "#00ff66";
-        setInterval(() =>{
-         document.querySelector("#overlay").style.display = "none";
-         document.querySelector(".story").style.display = "block";
-        },800);
-    }else {
-        message.textContent = "Access denied wrong code, try again ";
-        message.style.color = "#ff3333";
-    }
-});
+        // unlock mission code
+        document.getElementById('unlock').addEventListener('click', function () {
+            const code = document.getElementById('missionCode').value.trim();
+            const message = document.getElementById('message');
+            if (code.toLowerCase() == "1010" || code.toLowerCase() == "1 0 1 0") {
+                localStorage.setItem("mission3Unlocked", "true");
+                message.textContent = "Mission unlocked";
+                message.style.color = "#00ff66";
+                setInterval(() => {
+                    document.querySelector("#overlay").style.display = "none";
+                    document.querySelector(".story").style.display = "block";
+                }, 800);
+            } else {
+                message.textContent = "Access denied wrong code, try again ";
+                message.style.color = "#ff3333";
+            }
+        });
 
-document.getElementById("next").addEventListener('click' , function(){
-  document.getElementById("ok").style.display = "block";
- const text2 = "THis mission can be only completed between 11:00 PM to 1AM , so be carefull . SO are you ready . ";
-  Type(text2 , document.getElementById('text2'));
-    document.getElementById("next").style.display = "none";
-      document.getElementById("text1").style.display = "none";
-});
+        document.getElementById("next").addEventListener('click', function () {
+            document.getElementById("ok").style.display = "block";
+            const text2 = "THis mission can be only completed between 11:00 PM to 1AM , so be carefull . SO are you ready . ";
+            Type(text2, document.getElementById('text2'));
+            document.getElementById("next").style.display = "none";
+            document.getElementById("text1").style.display = "none";
+        });
 
 
-document.getElementById("ok").addEventListener('click', function(){
+        document.getElementById("ok").addEventListener('click', function () {
 
-const now = new Date();
+            const now = new Date();
 
-const hours = now.getHours();
-const minutes = now.getMinutes();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
 
-const time = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+            const time = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
 
-console.log("Current time:", time);
+            console.log("Current time:", time);
 
-const missionTime = (hours >= 23) || (hours < 1) || (hours === 1 && minutes === 0);
+            const missionTime = (hours >= 23) || (hours < 1) || (hours === 1 && minutes === 0);
 
-if(missionTime){
-   
-    document.getElementById(".story").style.display = "none";
+            if (missionTime) {
 
-}
-else{
-    document.getElementById("ok").style.display = "none";
-    document.getElementById("text2").style.display = "none";
-   const timeerror = `you can't continue the mission becuase currently its ${time} , you need to complete this mission between 11:00 pm to 1:00 AM`;
-   Type(timeerror, document.getElementById('timeError'));
-}
+                document.getElementById(".story").style.display = "none";
 
-});
+            }
+            else {
+                document.getElementById("ok").style.display = "none";
+                document.getElementById("text2").style.display = "none";
+                const timeerror = `you can't continue the mission becuase currently its ${time} , you need to complete this mission between 11:00 pm to 1:00 AM`;
+                Type(timeerror, document.getElementById('timeError'));
+            }
+
+        });
     </script>
 </body>
+
 </html>

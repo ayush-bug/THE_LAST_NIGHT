@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 4: the charlie charlie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: rgb(25, 3, 14);
+            background: url(assets/mission4bg.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    @font-face {
+        font-family: dr;
+        src: url(../assets/fonts/DrCaligari.ttf);
+    }
+        .story {
+            display: none;
+            position: fixed;
+
+            bottom: 50%;
+            left: 30%;
+            transform: translate(-50px);
+            width: 50%;
+            height: auto;
+            text-align: center;
+            color: white;
+            font-size: larger;
+            z-index: 9999;
+            border: 3px solid crimson;
+            background-color: rgb(44, 1, 1);
+            border-radius: 10px;
+            box-shadow: 3px 3px 4px black;
+            animation: fadein 2s ease forwards;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .story h2 {
+            padding: 20px;
+            font-family: dr;
+            font-size: xx-large;
+            text-shadow: 2px 3px 2px black;
+            letter-spacing: 7px;
+        }
+
+        #next,
+        #completed {
+            width: 100px;
+            height: 30px;
+            border: none;
+            background-color: rgb(235, 33, 50);
+            margin-bottom: 10px;
+            border: 2px solid black;
+            border-radius: 10px;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+         .code-overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(0, 0, 0, 0.92);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+         .code-box {
+            width: 320px;
+            padding: 30px;
+            background-color: #100909;
+            border: 1px solid #8b0000;
+            box-shadow: 0 0 25px rgba(180, 0, 0, 0.3);
+            text-align: center;
+            color: white;
+            font-family: monospace;
+        }
+
+        .code-box h2 {
+            color: #c00000;
+            margin-bottom: 15px;
+        }
+             #unlock {
+            padding: 12px 22px;
+            background: #850000;
+            color: white;
+            border: none;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="code-overlay" id="overlay">
+        <div class="code-box">
+            <h2>Mission locked</h2>
+            <p>Complete mission 3 to play this mission .</p>
+            <br>
+             <a href="mission3.html" target="_blank"><button id="unlock">Unlock</button>
+        </a> 
+            </div>
+              
+    </div>
+
+
+
+    <div class="story">
+        <h2 id="text1"></h2>
+        <h2 id="text2"></h2>
+        <button id="next">OK </button>
+        <button id="completed" style="display: none;">Completed</button>
+    </div>
+
+
+    <script>
+       if (localStorage.getItem("mission4Unlocked") === "true") {
+         document.querySelector('#overlay').style.display = "none";
+       document.querySelector('.story').style.display = "block";
+}
+
+
+        const rule1 = "MISSION 4 :  haha , for this mission you must complete it with your friend .";
+        let i = 0;
+        function Type(text, ele) {
+            let i = 0;
+            function write() {
+                if (i < text.length) {
+                    ele.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(write, 70);
+                }
+            }
+            write();
+        };
+        Type(rule1, document.getElementById('text1'));
+        document.getElementById("next").addEventListener('click', function(){
+           const text2 = "so you need to play charlie charlie game with you firend , be carefull , you can't escape without palying , because i can see you , hahaha , after completing just click the completed button that will unlock your next mission ."; 
+           document.getElementById('text1').style.display = 'none';
+           document.getElementById('next').style.display = 'none';
+
+           Type(text2, document.getElementById('text2'));
+                   document.getElementById('completed').style.display = 'block';
+
+        });
+    </script>
+</body>
+
+</html>
