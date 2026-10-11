@@ -87,7 +87,7 @@
             display: none;
             position: fixed;
 
-            bottom: 50%;
+            bottom: 30%;
             left: 30%;
             transform: translate(-50px);
             width: 50%;
@@ -122,11 +122,11 @@
         }
 
         #next,
-        #ok {
+        #ok, #completed{
             width: 100px;
             height: 30px;
             border: none;
-            background-color: rgb(235, 33, 50);
+            background-color: rgb(190, 172, 186);
             margin-bottom: 10px;
             border: 2px solid black;
             border-radius: 10px;
@@ -150,9 +150,11 @@
     <div class="story">
         <h2 id="text1"></h2>
         <h2 id="text2"></h2>
+        <h2 id="text3"></h2>
         <h2 id="timeError"></h2>
         <button id="next">OK </button>
         <button id="ok" style="display: none;">YEAH</button>
+        <button id="completed" style="display: none;">Completed</button>
     </div>
 
 
@@ -218,13 +220,17 @@
 
             const time = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
 
-            console.log("Current time:", time);
+            
 
             const missionTime = (hours >= 23) || (hours < 1) || (hours === 1 && minutes === 0);
 
             if (missionTime) {
 
-                document.getElementById(".story").style.display = "none";
+               document.getElementById('text2').style.display = "none";
+               document.getElementById('ok').style.display = "none";
+               const text3 = "so the mission is , you have to look into the mirror for straight 5 minutes or until you see somthing strange , or you see your face unusual . make sure to complete becuase i can see youu .. hahah . after completing click the button completed to unlock next mission ."
+               Type(text3, document.getElementById('text3'));
+               document.getElementById('completed').style.display = "block";
 
             }
             else {
@@ -235,6 +241,13 @@
             }
 
         });
+
+        document.getElementById('completed').addEventListener('click', function(){
+             localStorage.setItem("mission4Unlocked", "true");
+               setInterval(() =>{
+       document.location.href = "mission4.html";
+        },800);
+        })
     </script>
 </body>
 
