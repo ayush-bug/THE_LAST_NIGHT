@@ -169,6 +169,12 @@
                    document.getElementById('completed').style.display = 'block';
 
         });
+        document.getElementById("completed").addEventListener('click' , function(){
+            localStorage.setItem("mission5Unlocked", "true");
+               setInterval(() =>{
+       document.location.href = "mission5.html";
+        },1000);
+        });
     </script>
 </body>
 
