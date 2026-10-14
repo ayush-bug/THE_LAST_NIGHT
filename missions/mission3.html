@@ -180,7 +180,7 @@
         if (localStorage.getItem("mission3Unlocked") === "true") {
             document.querySelector(".code-overlay").style.display = "none";
             document.querySelector(".story").style.display = "block";
-            Type(rule1, document.getElementById("text1"))
+            Type(rule1, document.getElementById("text1"));
         }
 
 
@@ -192,6 +192,7 @@
                 localStorage.setItem("mission3Unlocked", "true");
                 message.textContent = "Mission unlocked";
                 message.style.color = "#00ff66";
+                      Type(rule1, document.getElementById("text1"));
                 setInterval(() => {
                     document.querySelector("#overlay").style.display = "none";
                     document.querySelector(".story").style.display = "block";

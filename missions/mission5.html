@@ -193,7 +193,12 @@ document.addEventListener("visibilitychange", function () {
             document.getElementById("completed").style.display = "block";
             Type(text3, document.getElementById("text3"));
         });
-   
+        document.getElementById("completed").addEventListener('click', function(){
+            localStorage.setItem("mission6Unlocked", "true");
+               setInterval(() =>{
+       document.location.href = "mission6.html";
+        },2000);
+        });
     </script>
 </body>
 
