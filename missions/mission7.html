@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +9,13 @@
         type="image/x-icon">
     <title>Mission 7 : challenge your ghost</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        body{
+
+        body {
             background: rgb(25, 3, 14);
             background: url(assets/mission7bg.jpg);
             background-size: cover;
@@ -22,10 +24,12 @@
             background-attachment: fixed;
 
         }
+
         @font-face {
-            font-family:chirstmare ;
+            font-family: chirstmare;
             src: url(../assets/fonts/GreenFuz.otf);
         }
+
         .story {
             display: none;
             position: fixed;
@@ -78,20 +82,71 @@
             cursor: pointer;
             color: white;
         }
+           .code-overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(0, 0, 0, 0.92);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .code-box {
+            width: 320px;
+            padding: 30px;
+            background-color: #100909;
+            border: 1px solid #8b0000;
+            box-shadow: 0 0 25px rgba(180, 0, 0, 0.3);
+            text-align: center;
+            color: white;
+            font-family: monospace;
+        }
+
+        .code-box h2 {
+            color: #c00000;
+            margin-bottom: 15px;
+        }
+
+        #unlock {
+            padding: 12px 22px;
+            background: #850000;
+            color: white;
+            border: none;
+            cursor: pointer;
+
+        }
+
     </style>
 </head>
+
 <body>
-     <div class="story">
+    <div class="code-overlay" id="overlay">
+        <div class="code-box">
+            <h2>Mission locked</h2>
+            <p>Complete mission 6 to unlock this mission .</p>
+            <br>
+            <a href="mission6.html" target="_blank"><button id="unlock">Unlock</button>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="story">
         <h2 id="text1"></h2>
         <h2 id="text2"></h2>
         <h2 id="text3"></h2>
         <button id="next">OK , Next</button>
-        <button id="ok" style="display: none;">OKey</button>
-        <button id="completed" style="display: none;">Completed</button>
+        <button id="ok" style="display: none;">Hell yeah</button>
+        <button id="completed" style="display: none;">OK boss</button>
     </div>
 
     <script>
-          const bgm = new Audio('../assets/audio/mission7bgm.mp3')
+        const bgm = new Audio('../assets/audio/mission7bgm.mp3')
 
         document.addEventListener("visibilitychange", function () {
             if (document.hidden) {
@@ -102,7 +157,7 @@
         });
 
 
-          const text1 = "MISSION 7 *: THis mission is totally connected to the mission 6 , the drawing you made .";
+        const text1 = "MISSION 7 *: THis mission is totally connected to the mission 6 , the drawing you made .";
         let i = 0;
         function Type(text, ele) {
             let i = 0;
@@ -115,14 +170,37 @@
             }
             write();
         }
-          if (localStorage.getItem("mission7Unlocked") === "true") {
+        if (localStorage.getItem("mission7Unlocked") === "true") {
             Type(text1, document.getElementById("text1"));
-              bgm.play();
-            document.querySelector('.story').style.display = "block";
+            bgm.play();
+            document.querySelector(".story").style.display = "block";
+            document.getElementById("overlay").style.display = "none";
 
         }
 
+        document.getElementById("next").addEventListener('click', function () {
+            document.getElementById("text1").style.display = "none";
+            document.getElementById("next").style.display = "none";
+            const text2 = "IN this mission , you have to hold the picture you made mission 6 in your hand and do the 'bloody mary dare' . we need to bring that evil to destroy him totally. then only you can escape the last night . ARe you Ready ? "
+            Type(text2, document.getElementById("text2"));
+            document.getElementById("ok").style.display = "block";
+        });
 
+        document.getElementById("ok").addEventListener('click', function () {
+            document.getElementById("text2").style.display = "none";
+            document.getElementById("ok").style.display = "none";
+            document.getElementById("completed").style.display = "block";
+            const text3 = "You have to complete this mission in between 3-4 pm , because that time the evil can't do anything . be carefull !!! , after completing this you will redirected to last mission .";
+            Type(text3, document.getElementById("text3"));
+        });
+        document.getElementById("completed").addEventListener('click', function () {
+            document.querySelector(".story").style.display = "none";
+            localStorage.setItem("mission8Unlocked", "true");
+            setInterval(() => {
+                document.location.href = "mission8.html";
+            }, 2000);
+        });
     </script>
 </body>
+
 </html>
