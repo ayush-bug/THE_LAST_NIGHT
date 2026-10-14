@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,22 @@
         type="image/x-icon">
     <title>Mission 6 : Draw</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        body{
-             background: rgb(25, 3, 14);
+
+        body {
+            background: rgb(25, 3, 14);
             background: url(assets/mission6bg.png);
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
-         .story {
+
+        .story {
             display: none;
             position: fixed;
 
@@ -53,7 +56,7 @@
 
         .story h2 {
             padding: 20px;
-            font-family: breathhouse;
+            font-family: nightcore;
             font-size: xx-large;
             text-shadow: 2px 3px 2px black;
             letter-spacing: 7px;
@@ -73,20 +76,72 @@
             cursor: pointer;
             color: white;
         }
+           .code-overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(0, 0, 0, 0.92);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+         .code-box {
+            width: 320px;
+            padding: 30px;
+            background-color: #100909;
+            border: 1px solid #8b0000;
+            box-shadow: 0 0 25px rgba(180, 0, 0, 0.3);
+            text-align: center;
+            color: white;
+            font-family: monospace;
+        }
+
+        .code-box h2 {
+            color: #c00000;
+            margin-bottom: 15px;
+        }
+             #unlock {
+            padding: 12px 22px;
+            background: #850000;
+            color: white;
+            border: none;
+            cursor: pointer;
+
+        }
+           @font-face {
+            font-family: nightcore;
+            src: url(../assets/fonts/Frightmare-Demo.otf);
+        }
     </style>
 </head>
+
 <body>
+    <div class="code-overlay" id="overlay">
+        <div class="code-box">
+            <h2>Mission locked</h2>
+            <p>Complete mission 5 to play this mission .</p>
+            <br>
+            <a href="mission5.html" target="_blank"><button id="unlock">Unlock</button>
+            </a>
+        </div>
+
+    </div>
+
     <div class="story">
         <h2 id="text1"></h2>
         <h2 id="text2"></h2>
         <h2 id="text3"></h2>
-        <button id="next">OK </button>
-        <button id="ok" style="display: none;">OKay</button>
+        <button id="next">OK , Next</button>
+        <button id="ok" style="display: none;">OKey</button>
         <button id="completed" style="display: none;">Completed</button>
     </div>
     <script>
-       const bgm = new Audio('../assets/audio/mission6bgm.mp3')
- 
+        const bgm = new Audio('../assets/audio/mission6bgm.mp3')
+
 
         const text1 = "MISSION 6 : THis is very fun mission , you need to draw somthing . hehehe";
         let i = 0;
@@ -102,18 +157,35 @@
             write();
         }
         if (localStorage.getItem("mission6Unlocked") === "true") {
-       bgm.play();
-       Type(text1,document.getElementById("text1"));
-       document.querySelector('.story').style.display = "block";
-    
-}
+            bgm.play();
+            Type(text1, document.getElementById("text1"));
+            document.getElementById("overlay").style.display = "none";
+            document.querySelector('.story').style.display = "block";
 
-document.getElementById("next").addEventListener('click' , function(){
-        const text2 = "so, you have to draw a picture of that ghost or any such strange character that always come in your dreams to scare you . ";
-         document.getElementById("text1").style.display = "none";
-         document.getElementById("next").style.display = "none";
-        Type(text2, document.getElementById("text2"));
-});
+        }
+
+        document.getElementById("next").addEventListener('click', function () {
+            const text2 = "so, you have to draw a picture of that ghost or any such strange character that always come in your dreams to scare you . ";
+            document.getElementById("text1").style.display = "none";
+            document.getElementById("next").style.display = "none";
+            Type(text2, document.getElementById("text2"));
+            document.getElementById("ok").style.display = "block";
+        });
+        document.getElementById("ok").addEventListener('click', function () {
+            const text3 = "so , after drawing , click the completed button to unlock the next mission , your drawing will be used in the next mission .";
+            document.getElementById("text2").style.display = "none";
+            document.getElementById("ok").style.display = "none";
+            document.getElementById("completed").style.display = "block";
+            Type(text3, document.getElementById("text3"));
+        });
+
+        document.getElementById("completed").addEventListener('click', function () {
+            localStorage.setItem("mission7Unlocked", "true");
+            setInterval(() => {
+                document.location.href = "mission7.html";
+            }, 2000);
+        });
     </script>
 </body>
+
 </html>
