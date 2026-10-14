@@ -85,11 +85,35 @@
         <button id="completed" style="display: none;">Completed</button>
     </div>
     <script>
+       const bgm = new Audio('../assets/audio/mission6bgm.mp3')
+ 
+
+        const text1 = "MISSION 6 : THis is very fun mission , you need to draw somthing . hehehe";
+        let i = 0;
+        function Type(text, ele) {
+            let i = 0;
+            function write() {
+                if (i < text.length) {
+                    ele.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(write, 70);
+                }
+            }
+            write();
+        }
         if (localStorage.getItem("mission6Unlocked") === "true") {
-    
+       bgm.play();
+       Type(text1,document.getElementById("text1"));
        document.querySelector('.story').style.display = "block";
-         
+    
 }
+
+document.getElementById("next").addEventListener('click' , function(){
+        const text2 = "so, you have to draw a picture of that ghost or any such strange character that always come in your dreams to scare you . ";
+         document.getElementById("text1").style.display = "none";
+         document.getElementById("next").style.display = "none";
+        Type(text2, document.getElementById("text2"));
+});
     </script>
 </body>
 </html>
