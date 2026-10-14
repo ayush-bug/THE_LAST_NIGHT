@@ -161,8 +161,14 @@
 
     <script>
         // check for mission unlocked
-
-
+      const bgm = new Audio('../assets/audio/mission3bgm.mp3')
+     document.addEventListener("visibilitychange", function () {
+            if (document.hidden) {
+                bgm.pause();
+            } else {
+                bgm.play();
+            }
+        });
         const rule1 = "MISSION 2 :  This , mission is very diffrent form other last 2 mission .";
         let i = 0;
         function Type(text, ele) {
@@ -178,6 +184,7 @@
         }
 
         if (localStorage.getItem("mission3Unlocked") === "true") {
+            bgm.play();
             document.querySelector(".code-overlay").style.display = "none";
             document.querySelector(".story").style.display = "block";
             Type(rule1, document.getElementById("text1"));
