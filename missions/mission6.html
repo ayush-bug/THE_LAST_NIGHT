@@ -76,7 +76,8 @@
             cursor: pointer;
             color: white;
         }
-           .code-overlay {
+
+        .code-overlay {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -89,7 +90,8 @@
             justify-content: center;
             align-items: center;
         }
-         .code-box {
+
+        .code-box {
             width: 320px;
             padding: 30px;
             background-color: #100909;
@@ -104,7 +106,8 @@
             color: #c00000;
             margin-bottom: 15px;
         }
-             #unlock {
+
+        #unlock {
             padding: 12px 22px;
             background: #850000;
             color: white;
@@ -112,7 +115,8 @@
             cursor: pointer;
 
         }
-           @font-face {
+
+        @font-face {
             font-family: nightcore;
             src: url(../assets/fonts/Frightmare-Demo.otf);
         }
@@ -142,6 +146,13 @@
     <script>
         const bgm = new Audio('../assets/audio/mission6bgm.mp3')
 
+        document.addEventListener("visibilitychange", function () {
+            if (document.hidden) {
+                bgm.pause();
+            } else {
+                bgm.play();
+            }
+        });
 
         const text1 = "MISSION 6 : THis is very fun mission , you need to draw somthing . hehehe";
         let i = 0;
