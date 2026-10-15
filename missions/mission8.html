@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon"
+        href="https://raw.githubusercontent.com/ayush-bug/THE_LAST_NIGHT/refs/heads/main/assets/skull-red-icon.png"
+        type="image/x-icon">
+    <title>MIssion 9 : Destroy </title>
+    <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: rgb(25, 3, 14);
+            background: url(assets/mission8bg.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+        }
+         .story {
+            display: none;
+            position: fixed;
+
+            bottom: 30%;
+            left: 30%;
+            transform: translate(-50px);
+            width: 50%;
+            height: auto;
+            text-align: center;
+            color: white;
+            font-size: larger;
+            z-index: 9999;
+            border: 3px solid crimson;
+            background-color: rgb(44, 1, 1);
+            border-radius: 10px;
+            box-shadow: 3px 3px 4px black;
+            animation: fadein 2s ease forwards;
+        }
+
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .story h2 {
+            padding: 20px;
+            font-family: chirstmare;
+            font-size: xx-large;
+            text-shadow: 2px 3px 2px black;
+            letter-spacing: 7px;
+        }
+
+        #next,
+        #ok,
+        #completed {
+            width: 100px;
+            height: 30px;
+            border: none;
+            background-color: rgb(91, 5, 134);
+            margin-bottom: 10px;
+            border: 2px solid rgb(215, 0, 248);
+            border-radius: 10px;
+            font-weight: bolder;
+            cursor: pointer;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+       <h2 id="text1"></h2>
+        <h2 id="text2"></h2>
+        <h2 id="text3"></h2>
+        <button id="next">OK , Next</button>
+        <button id="ok" style="display: none;">Hell yeah</button>
+        <button id="completed" style="display: none;">OK boss</button>
+    </div>
+
+    <script>
+          const text1 = "MISSION 8 *: Finally the last and final mission , you really did a great job , completed all the previous missions .";
+        let i = 0;
+        function Type(text, ele) {
+            let i = 0;
+            function write() {
+                if (i < text.length) {
+                    ele.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(write, 70);
+                }
+            }
+            write();
+        }
+    </script>
+</body>
+</html>
