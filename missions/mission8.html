@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
         type="image/x-icon">
     <title>MIssion 9 : Destroy </title>
     <style>
-          * {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -23,11 +24,13 @@
             background-attachment: fixed;
 
         }
+
         @font-face {
-            font-family:creepy;
+            font-family: creepy;
             src: url("../assets/fonts/THECREEPYHUNTER.ttf");
         }
-         .story {
+
+        .story {
             display: none;
             position: fixed;
 
@@ -67,7 +70,8 @@
 
         #next,
         #ok,
-        #completed {
+        #after,
+        #done {
             width: 100px;
             height: 30px;
             border: none;
@@ -79,21 +83,76 @@
             cursor: pointer;
             color: white;
         }
+          .code-overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(0, 0, 0, 0.92);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
+        .code-box {
+            width: 320px;
+            padding: 30px;
+            background-color: #100909;
+            border: 1px solid #8b0000;
+            box-shadow: 0 0 25px rgba(180, 0, 0, 0.3);
+            text-align: center;
+            color: white;
+            font-family: monospace;
+        }
+
+        .code-box h2 {
+            color: #c00000;
+            margin-bottom: 15px;
+        }
+
+        #unlock {
+            padding: 12px 22px;
+            background: #850000;
+            color: white;
+            border: none;
+            cursor: pointer;
+
+        }
     </style>
 </head>
+
 <body>
+
+    <div class="code-overlay" id="overlay">
+        <div class="code-box">
+            <h2>Mission locked</h2>
+            <p>Complete mission 7 to unlock this mission .</p>
+            <br>
+            <a href="mission7.html" target="_blank"><button id="unlock">Unlock</button>
+            </a>
+        </div>
+
+    </div>
+
+
     <div class="story">
-       <h2 id="text1"></h2>
+        <h2 id="text1"></h2>
         <h2 id="timeError"></h2>
+        <h2 id="text2"></h2>
         <h2 id="text3"></h2>
+        <h2 id="text4" style="display: none;"></h2>
+        <h2 id="text5" style="display: none;"></h2>
         <button id="next">OK , Next</button>
-        <button id="ok" style="display: none;">Hell yeah</button>
-        <button id="completed" style="display: none;">OK boss</button>
+        <button id="ok" style="display: none;">oke then</button>
+        <button id="after" style="display: none;">OK next?</button>
+        <button id="done" style="display: none;">Done</button>
     </div>
 
     <script>
-           const bgm = new Audio('../assets/audio/mission8bgm.mp3');
+        const bgm = new Audio('../assets/audio/mission8bgm.mp3');
 
         document.addEventListener("visibilitychange", function () {
             if (document.hidden) {
@@ -102,10 +161,10 @@
                 bgm.play();
             }
         });
-       
-       
 
-          const text1 = "MISSION 8 *: Finally the last and final mission , you really did a great job , completed all the previous missions .";
+
+
+        const text1 = "MISSION 8 *: Finally the last and final mission , you really did a great job , completed all the previous missions .";
         let i = 0;
         function Type(text, ele) {
             let i = 0;
@@ -118,15 +177,16 @@
             }
             write();
         }
-         if (localStorage.getItem("mission8Unlocked") === "true") {
+        if (localStorage.getItem("mission8Unlocked") === "true") {
             Type(text1, document.getElementById("text1"));
             bgm.play();
             document.querySelector(".story").style.display = "block";
+            document.getElementById("overlay").style.display = "none";
         }
 
-        document.getElementById("next").addEventListener('click', function(){
-             document.getElementById("text1").style.display = "none";
-             document.getElementById("next").style.display = "none";
+        document.getElementById("next").addEventListener('click', function () {
+            document.getElementById("text1").style.display = "none";
+            document.getElementById("next").style.display = "none";
             const now = new Date();
 
             const hours = now.getHours();
@@ -134,11 +194,40 @@
 
             const time = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
 
-            
+
 
             const missionTime = (hours >= 23) || (hours < 1) || (hours === 1 && minutes === 0);
-                      if (missionTime) {
-                              
+            if (missionTime) {
+                const text2 = "before we proceed, please read this , you need 4 candles and the drawing you made in mission 6, now this is the time you need to destroy that evil . ";
+                Type(text2, document.getElementById("text2"));
+                document.getElementById("ok").style.display = "block";
+                document.getElementById("ok").addEventListener('click', function () {
+                    document.getElementById("ok").style.display = "none";
+                    document.getElementById("text2").style.display = "none";
+                    const text3 = "Read this carefully , Now you need to perform this in your bedroom , burn the candles and place it on each corners of your drawing and pray to your god to destroy them . ;"
+                    Type(text3, document.getElementById("text3"));
+                    document.getElementById("after").style.display = "block";
+                });
+                document.getElementById("after").addEventListener('click', function () {
+                    document.getElementById("after").style.display = "none";
+                    document.getElementById("text3").style.display = "none";
+                    const text4 = "After praying , burn that paper completely with those candles , put the ashes in a box and throw it outside or place it in the ground";
+                    document.getElementById("text4").style.display = "block";
+                    Type(text4, document.getElementById("text4"));
+                    document.getElementById("done").style.display = "block";
+                });
+                document.getElementById("done").addEventListener('click', function () {
+                    document.getElementById("text5").style.display = "block";
+                    document.getElementById("text4").style.display = "none";
+                    document.getElementById("after").style.display = "none";
+                    const text5 = "You are really so brave , you did a great job , now no one can scare you because god is with you . The escape door is open now please escape as soon as possible . go back and escape";
+                    Type(text5, document.getElementById("text5"));
+                    document.getElementById("done").style.display = "none";
+
+                    setInterval(() => {
+                        document.location.href = "../index.html";
+                    }, 20000);
+                });
             }
             else {
                 const timeerror = ` you can only complete this mission between 11:00 pm to 1:00 AM , so make sure your time should match , currenly its ${time}`;
@@ -147,4 +236,5 @@
         });
     </script>
 </body>
+
 </html>
