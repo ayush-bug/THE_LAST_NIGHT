@@ -23,6 +23,10 @@
             background-attachment: fixed;
 
         }
+        @font-face {
+            font-family:creepy;
+            src: url("../assets/fonts/THECREEPYHUNTER.ttf");
+        }
          .story {
             display: none;
             position: fixed;
@@ -36,8 +40,8 @@
             color: white;
             font-size: larger;
             z-index: 9999;
-            border: 3px solid crimson;
-            background-color: rgb(44, 1, 1);
+            border: 3px solid rgb(224, 5, 5);
+            background-color: rgba(97, 32, 0, 0.73);
             border-radius: 10px;
             box-shadow: 3px 3px 4px black;
             animation: fadein 2s ease forwards;
@@ -55,7 +59,7 @@
 
         .story h2 {
             padding: 20px;
-            font-family: chirstmare;
+            font-family: creepy;
             font-size: xx-large;
             text-shadow: 2px 3px 2px black;
             letter-spacing: 7px;
@@ -79,8 +83,9 @@
     </style>
 </head>
 <body>
+    <div class="story">
        <h2 id="text1"></h2>
-        <h2 id="text2"></h2>
+        <h2 id="timeError"></h2>
         <h2 id="text3"></h2>
         <button id="next">OK , Next</button>
         <button id="ok" style="display: none;">Hell yeah</button>
@@ -88,6 +93,18 @@
     </div>
 
     <script>
+           const bgm = new Audio('../assets/audio/mission8bgm.mp3');
+
+        document.addEventListener("visibilitychange", function () {
+            if (document.hidden) {
+                bgm.pause();
+            } else {
+                bgm.play();
+            }
+        });
+       
+       
+
           const text1 = "MISSION 8 *: Finally the last and final mission , you really did a great job , completed all the previous missions .";
         let i = 0;
         function Type(text, ele) {
@@ -101,6 +118,33 @@
             }
             write();
         }
+         if (localStorage.getItem("mission8Unlocked") === "true") {
+            Type(text1, document.getElementById("text1"));
+            bgm.play();
+            document.querySelector(".story").style.display = "block";
+        }
+
+        document.getElementById("next").addEventListener('click', function(){
+             document.getElementById("text1").style.display = "none";
+             document.getElementById("next").style.display = "none";
+            const now = new Date();
+
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+
+            const time = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`;
+
+            
+
+            const missionTime = (hours >= 23) || (hours < 1) || (hours === 1 && minutes === 0);
+                      if (missionTime) {
+                              
+            }
+            else {
+                const timeerror = ` you can only complete this mission between 11:00 pm to 1:00 AM , so make sure your time should match , currenly its ${time}`;
+                Type(timeerror, document.getElementById('timeError'));
+            }
+        });
     </script>
 </body>
 </html>
