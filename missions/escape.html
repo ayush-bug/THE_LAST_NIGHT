@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape THe last Night</title>
+    <link rel="shortcut icon"
+        href="https://raw.githubusercontent.com/ayush-bug/THE_LAST_NIGHT/refs/heads/main/assets/skull-red-icon.png"
+        type="image/x-icon">
+        <style>
+             * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: rgb(25, 3, 14);
+            background: url(assets/escape.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+        }
+         .story {
+            display: block;
+            position: fixed;
+
+            bottom: 25%;
+            left: 30%;
+            transform: translate(-50px);
+            width: 50%;
+            height: auto;
+            text-align: center;
+            color: white;
+            font-size: larger;
+            z-index: 9999;
+            border: 3px solid rgb(5, 93, 224);
+            background-color: rgba(81, 121, 190, 0.73);
+            border-radius: 10px;
+            box-shadow: 3px 3px 4px black;
+            animation: fadein 2s ease forwards;
+        }
+@font-face {
+    font-family: endgame;
+    src: url(../assets/fonts/Endgame.otf);
+}
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .story h2 {
+            padding: 20px;
+            font-family: endgame;
+            font-size: xx-large;
+            text-shadow: 2px 3px 2px black;
+            letter-spacing: 7px;
+        }
+        </style>
+</head>
+<body>
+ <div class="story">
+        <h2 id="text1"></h2>
+    </div>
+
+
+     <script>
+         const bgm = new Audio('../assets/audio/escape.mp3');
+
+        document.addEventListener("visibilitychange", function () {
+            if (document.hidden) {
+                bgm.pause();
+            } else {
+                bgm.play();
+            }
+        });
+ const text1 = "YOU are great , you really did a great work completed all the missions without any fear you won , now no one can disturb your sweeet dreams at 3:00 AM , now you can sleep peacefully , have a great night bye .will meet you in the next version , till than take care , Share this with your firends . hehehe ..     THE LAST NIGHT ";
+        let i = 0;
+        function Type(text, ele) {
+            let i = 0;
+            function write() {
+                if (i < text.length) {
+                    ele.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(write, 70);
+                }
+            }
+            write();
+        }
+        if (localStorage.getItem("Escape") === "true") {
+            bgm.play();
+            Type(text1,document.getElementById("text1"));
+        }else{
+            document.querySelector("body").style.display = "none";
+        }
+       
+     </script>
+</body>
+</html>

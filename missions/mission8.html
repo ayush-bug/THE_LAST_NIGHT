@@ -223,7 +223,7 @@
                     const text5 = "You are really so brave , you did a great job , now no one can scare you because god is with you . The escape door is open now please escape as soon as possible . go back and escape";
                     Type(text5, document.getElementById("text5"));
                     document.getElementById("done").style.display = "none";
-
+                       localStorage.setItem("Escape", "true");
                     setInterval(() => {
                         document.location.href = "../index.html";
                     }, 20000);

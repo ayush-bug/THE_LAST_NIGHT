@@ -7,3 +7,4 @@ mision 2 bg image https://www.wallpaperflare.com/halloween-4k-background-wallpap
 mission 3 bg: https://4kwallpapers.com/celebrations/halloween/halloween-pumpkins-11101.html
 mission 4 bg :https://wallpapercave.com/w/wp3434528
 mission 5 bg : https://4kwallpapers.com/celebrations/halloween/halloween-background-halloween-night-halloween-bats-8863.html
+escpae bg : 
