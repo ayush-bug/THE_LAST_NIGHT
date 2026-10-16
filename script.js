@@ -58,7 +58,7 @@ document.getElementById("yeah").addEventListener('click' , function(){
     document.querySelector('.time').style.display = "none";
     document.querySelector(".mission").style.display = "grid";
 });
-localStorage.setItem("Escape", "true");
+
  if (localStorage.getItem("Escape") === "true") {
              document.querySelector('.door:nth-child(9)').style.cursor = "pointer";
               document.querySelector('.door:nth-child(9)').addEventListener('click',function(){
