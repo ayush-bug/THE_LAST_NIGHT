@@ -210,6 +210,32 @@
     border: 1px solid #555555;
     box-shadow:  0 0 25px rgba(0, 0, 0, 0.6);
 } 
+.mission3{
+     position: fixed;
+    bottom: 40px;
+    left: 30%;
+    transform: translate(-50px);
+    width: 100%;
+    height: auto;
+    z-index: 9999999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    
+}
+.mission3 button{ 
+        
+  background: #fbca1f;
+  font-family: inherit;
+  padding: 0.6em 1.3em;
+  font-weight: 900;
+  font-size: 18px;
+  font-family: monospace;
+  border: 3px solid black;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
+  cursor: pointer;
+}
     </style>
 </head>
 <body>
@@ -222,7 +248,11 @@
          <button id="unlock" >Unlock</button>
          <p id="message"></p>
     </div>
-   
+   <div class="mission3">
+           <a href="mission3.html" target="_blank">
+             <button>OPEN MISSION 3</button>
+             </a>
+        </div>
     <div class="story">
         <h2 id="text1"></h2>
         <h2 id="text2"></h2>
@@ -291,6 +321,7 @@ document.getElementById("next").addEventListener('click', function(){
 });
 document.getElementById("ok").addEventListener('click', function(){
     document.querySelector('.story').style.display = "none";
+    document.querySelector(".mission3").style.display = "flex";
 });
 
 

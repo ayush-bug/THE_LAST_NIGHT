@@ -145,6 +145,31 @@
     font-weight: bolder;
     cursor: pointer;
 }
+.mission2{
+     position: fixed;
+    bottom: 40px;
+    left: 30%;
+    transform: translate(-50px);
+    width: 100%;
+    height: auto;
+    z-index: 9999999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    
+}
+.mission2 button{ 
+    
+  background: #fbca1f;
+  font-family: inherit;
+  padding: 0.6em 1.3em;
+  font-weight: 900;
+  font-size: 18px;
+  border: 3px solid black;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
+  cursor: pointer;
+}
     </style>
 </head>
 <body>
@@ -153,6 +178,11 @@
         <h2 id="text2"></h2>
         <button id="next">OK </button>
         <button id="ok" style="display: none;">OK</button>
+        </div>
+        <div class="mission2">
+           <a href="mission2.html" target="_blank">
+             <button>OPEN MISSION 2 </button>
+             </a>
         </div>
     <div class="rules-container">
         <div class="rules">
@@ -213,6 +243,7 @@ document.getElementById("next").addEventListener('click', function(){
 });
 document.getElementById("ok").addEventListener('click', function(){
     document.querySelector('.story').style.display = "none";
+    document.querySelector(".mission2").style.display = "flex";
 })
     </script>
 </body>
