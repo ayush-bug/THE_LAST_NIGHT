@@ -1,4 +1,4 @@
-const bgm = new Audio('/assets/audio/dark.mp3');
+const bgm = new Audio("../assets/audio/dark.mp3");
 
  
 const txt1 = "There is no escape once you enter.";
