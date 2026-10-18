@@ -29,6 +29,15 @@ before you proceed to check the preview link please switch to a bigger screen be
 
 [live preview](https://thelastnight-lovat.vercel.app/)
 
+# Some answer key
+
+if you were not able to find the hidden text in mission one and spot the diffrence then 
+
+- mission 1 = 3am.
+- mission 2 = 1010(10 differences so 1010 in binary ).
+
+and other missons are just dare and some cool horror game so we can't have a clue or anyother option to complete it .
+
 # language used
 - HTML
 - CSS
